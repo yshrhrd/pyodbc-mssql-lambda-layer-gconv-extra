@@ -20,7 +20,8 @@ RUN mv /root/unixODBC-install/lib /opt/lib
 
 # Install msodbcsql
 RUN curl https://packages.microsoft.com/config/rhel/9/prod.repo | tee /etc/yum.repos.d/mssql-release.repo
-RUN ACCEPT_EULA=Y yum install -y msodbcsql18
+# Match the OpenSSL package to the snapsafe libraries already installed in the AL2 SAM image.
+RUN ACCEPT_EULA=Y yum install -y msodbcsql18 openssl-$(rpm -q --qf '%{VERSION}-%{RELEASE}' openssl-snapsafe-libs)
 
 # Install pyodbc
 RUN yum -y install unixODBC-devel
