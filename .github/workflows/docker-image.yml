@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         architecture: [x86_64, arm64]
-        python-version: ['3.11', '3.12','3.13']
+        python-version: ['3.11', '3.12','3.13','3.14']
         include:
           - architecture: x86_64
             runner: ubuntu-latest
@@ -78,6 +78,8 @@ jobs:
             **pyodbc-mssql-python-3.12-x86_64.zip**: For Python 3.12 on x86_64 Lambda environments.
             **pyodbc-mssql-python-3.13-arm64.zip**: For Python 3.13 on ARM64 Lambda environments.
             **pyodbc-mssql-python-3.13-x86_64.zip**: For Python 3.13 on x86_64 Lambda environments.
+            **pyodbc-mssql-python-3.14-arm64.zip**: For Python 3.14 on ARM64 Lambda environments.
+            **pyodbc-mssql-python-3.14-x86_64.zip**: For Python 3.14 on x86_64 Lambda environments.
 
             Choose the package matching your Python version and architecture for optimal performance.
 
