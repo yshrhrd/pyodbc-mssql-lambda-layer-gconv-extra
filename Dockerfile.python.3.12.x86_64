@@ -36,6 +36,9 @@ RUN so_file=$(ls /opt/microsoft/**/lib64/libmsodbcsql-*.so.* | grep msodbcsql18)
 # Copy gconv extra files
 RUN mkdir /opt/lib/gconv;cp -r /usr/lib64/gconv /opt/lib
 
+# Remove the build image's bundled Python runtime; it is not part of the layer.
+RUN rm -rf /opt/uv
+
 # Generate the zipped file that can be uploaded as a Lambda Layer
 WORKDIR /opt
 RUN zip -r /layer.zip .
